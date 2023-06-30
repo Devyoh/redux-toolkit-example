@@ -1,0 +1,21 @@
+import React from 'react'
+import { useSelector } from "react-redux";
+
+export default function Header() {
+
+    const TasksHeader = () => {
+        const tasks = useSelector(state => state.todo)
+        const undoneTasks = tasks.filter((t) => t.done === false);
+
+        return (
+            <>
+                <header>
+                    <h1>React Todo List</h1>
+                    <p>
+                        Tâches à faire : <strong>{undoneTasks.length}</strong>
+                    </p>
+                </header>
+            </>
+        )
+    };
+};
